@@ -30,7 +30,9 @@ const unhandledErr = () => {
   } catch (e) {
     console.error(e); // this sill be handled:false
     setTimeout(() => {
-      btnRef.value.classList.remove("error");
+      if (btnRef.value) {
+        btnRef.value.classList.remove("error");
+      }
     }, 5000);
   }
 };
@@ -49,7 +51,9 @@ const apiErr = () => {
   } catch (e) {
     console.error(e); // this sill be handled:false
     setTimeout(() => {
-      btn2Ref.value.classList.remove("error");
+      if (btn2Ref.value) {
+        btn2Ref.value.classList.remove("error");
+      }
     }, 5000);
   }
 };
@@ -66,7 +70,9 @@ const captureErr = () => {
     Sentry.captureException(e); // this sill be handled:true
   }
   setTimeout(() => {
-    btn3Ref.value.classList.remove("error");
+    if (btn3Ref.value) {
+      btn3Ref.value.classList.remove("error");
+    }
   }, 5000);
 };
 
@@ -76,7 +82,9 @@ const captureMsg = () => {
   }
   Sentry.captureMessage("It's all right, dont freak out."); // this sill be handled:true and not as an error
   setTimeout(() => {
-    btn4Ref.value.classList.remove("error");
+    if (btn4Ref.value) {
+      btn4Ref.value.classList.remove("error");
+    }
   }, 5000);
 };
 </script>
