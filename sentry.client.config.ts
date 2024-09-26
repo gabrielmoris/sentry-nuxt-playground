@@ -1,3 +1,4 @@
+// sentry.client.config.ts
 // Info about Nuxt Integration (is not same as vue) https://docs.sentry.io/platforms/javascript/guides/nuxt/
 import * as Sentry from "@sentry/nuxt";
 const config = useRuntimeConfig();
