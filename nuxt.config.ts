@@ -9,10 +9,11 @@ export default defineNuxtConfig({
     },
   },
   sentry: {
-    sourceMapsUploadOptions: {
-      org: "gabrielcmoris",
-      project: "sentry-nuxt-playground",
-      authToken: process.env.SENTRY_AUTH,
-    },
+    //This is not necessary since I am proxying the errors
+    // sourceMapsUploadOptions: {
+    //   org: "gabrielcmoris",
+    //   project: "nuxt-sentry-learn",
+    //   authToken: process.env.SENTRY_AUTH,
+    // },
   },
 });

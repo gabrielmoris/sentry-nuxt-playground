@@ -5,6 +5,7 @@
     <button ref="btn2" @click="apiErr">API Error</button>
     <button ref="btn3" @click="captureErr">Sentry Capture Error</button>
     <button ref="btn4" @click="captureMsg">Sentry Capture Message</button>
+    <button ref="btn5" @click="consolelog">Sentry Console.log</button>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ const btnRef = useTemplateRef<HTMLButtonElement | null>("btn");
 const btn2Ref = useTemplateRef<HTMLButtonElement | null>("btn2");
 const btn3Ref = useTemplateRef<HTMLButtonElement | null>("btn3");
 const btn4Ref = useTemplateRef<HTMLButtonElement | null>("btn4");
+const btn5Ref = useTemplateRef<HTMLButtonElement | null>("btn5");
 
 const breaktheapp = () => {
   throw new Error("Sentry, it is your turn!"); // this sill be handled:false
@@ -84,6 +86,19 @@ const captureMsg = () => {
   setTimeout(() => {
     if (btn4Ref.value) {
       btn4Ref.value.classList.remove("error");
+    }
+  }, 5000);
+};
+
+const consolelog = () => {
+  if (btn5Ref.value) {
+    btn5Ref.value.classList.add("error");
+  }
+  console.log("Hey Sentry, I am a console log");
+  console.error("Hey Sentry, I am an error log");
+  setTimeout(() => {
+    if (btn5Ref.value) {
+      btn5Ref.value.classList.remove("error");
     }
   }, 5000);
 };
